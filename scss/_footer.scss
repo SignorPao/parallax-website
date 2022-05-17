@@ -1,0 +1,282 @@
+/* ***********FOOTER************ */
+footer {
+  width: 100%;
+  height: auto;
+  background-image: linear-gradient(to bottom, #001e49, #001a40, #011737, #02122e, #010d26);
+  padding: 80px 0px 40px;
+  font-family: $fontOne;
+  color: $blue-three;
+  
+  .section {
+    @include container;
+    margin-bottom: 10px;
+    
+    &.first {
+      text-align: center;
+
+      h1 {
+        text-transform: uppercase;
+        font-weight: 300;
+        line-height: 150%;
+        @include fSize(20px);
+        letter-spacing: 0.1rem;
+        color: $blue-one;
+      }
+
+      h4 {
+        text-transform: uppercase;
+        line-height: 150%;
+        letter-spacing: 0.15rem;
+        @include fSize(14px);
+      }
+    }
+
+    &.second {
+      text-align: center;
+
+      .second-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        .link-one,
+        .link-two {
+          width: 100%;
+          height: fit-content;
+          margin: 0 auto;
+          background-color: $blue-three;
+          clip-path: polygon(0% 0%, 100% 0%, 99% 49.5%, 100% 100%, 0% 100%, 1% 52%);
+          transition: all 0.3s ease;
+          
+          &:hover {
+            background-color: $blue-one;
+          }
+          
+          a {
+            color: $blue-six;
+            text-transform: uppercase;
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            padding: 5px 0px 3px;
+            vertical-align: middle;
+            @include fSize(12px);
+            font-weight: 700;
+          }
+        }
+
+        .second-icon {
+          display: none;
+        }
+      }
+    }
+
+    &.third {
+      text-align: center;
+      width: fit-content;
+      
+      h2 {
+        letter-spacing: 0.2rem;
+        @include fSize(20px);
+        cursor: pointer;
+        color: $blue-one;
+        line-height: 150%;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: $white;
+        }
+      }
+
+    }
+
+    &.fourth {
+      text-align: center;
+      text-transform: uppercase;
+      @include fSize(10px);
+      line-height: 150%;
+
+      a {
+        color: inherit;
+
+        &:hover {
+          color: $blue-one;
+          @include linkHover;
+        }
+
+        &#me {
+          text-transform: none;
+          letter-spacing: 0.1rem;
+          color: $blue-one;
+        }
+      }
+    }
+
+    &.fifth {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+
+      .html {
+        background: url("../img/icons/html1.png") no-repeat;
+        background-size: cover;
+        width: 48px;
+        height: 48px;
+        display: block;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: url("../img/icons/html.png") no-repeat;
+          background-size: cover;
+          width: 48px;
+          height: 48px;
+        }
+      }
+      
+      .scss {
+        background: url("../img/icons/sass1.png") no-repeat;
+        background-size: cover;
+        width: 48px;
+        height: 48px;
+        display: block;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: url("../img/icons/sass.png") no-repeat;
+          background-size: cover;
+          width: 48px;
+          height: 48px;
+        }
+      }
+      
+      .js {
+        background: url("../img/icons/js1.png") no-repeat;
+        background-size: cover;
+        width: 48px;
+        height: 48px;
+        display: block;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: url("../img/icons/js.png") no-repeat;
+          background-size: cover;
+          width: 48px;
+          height: 48px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 480px) {
+    .section {
+      &.first {
+        h1 {
+          @include fSize(30px);
+        }
+        h4 {
+          @include fSize(20px);
+        }
+      }
+      &.second {
+        .second-links {
+          .link-one,
+          .link-two {
+            width: 60%;
+            a {
+              @include fSize(16px);
+              letter-spacing: 0.2rem;
+            }
+          }
+        }
+      }
+      &.third {
+        h2 {
+          @include fSize(24px);
+        }
+      }
+      &.fourth {
+        @include fSize(12px);
+      }
+      &.fifth {
+        .html {
+          background: url("../img/icons/html1.png") no-repeat;
+          width: 64px;
+          height: 64px;
+          display: block;
+          &:hover {
+            background: url("../img/icons/html.png") no-repeat;
+            width: 64px;
+            height: 64px;
+          }
+        }
+        .scss {
+          background: url("../img/icons/sass1.png") no-repeat;
+          width: 64px;
+          height: 64px;
+          display: block;
+          &:hover {
+            background: url("../img/icons/sass.png") no-repeat;
+            width: 64px;
+            height: 64px;
+          }
+        }
+        .js {
+          background: url("../img/icons/js1.png") no-repeat;
+          width: 64px;
+          height: 64px;
+          display: block;
+          &:hover {
+            background: url("../img/icons/js.png") no-repeat;
+            width: 64px;
+            height: 64px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      margin-bottom: 20px;
+      &.second {
+        .second-links {
+          flex-direction: row;
+          .second-icon {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 992px) {
+    .section {
+      margin-bottom: 30px;
+      &.first {
+        width: 60%;
+        margin: 0 auto 20px;
+        h1 {
+          @include fSize(38px);
+          margin-bottom: 20px;
+        }
+      }
+      &.second {
+        .second-links {
+          .link-one,
+          .link-two {
+            a {
+              @include fSize(18px);
+            }
+          }
+        }
+      }
+      &.third {
+        h2 {
+          @include fSize(30px);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,366 @@
+/* ***********MAIN************ */
+main {
+  position: relative;
+  background-image: linear-gradient(to bottom, #009fb4, #007d9f, #005c86, #003c69, #001e49);
+  color: inherit;
+  z-index: 100;
+  
+  .main-container {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    font-family: $fontOne;
+
+    .content-1 {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      .four-btn {
+        text-align: center;
+        
+        h1 {
+          @include fSize(20px);
+          text-transform: uppercase;
+          font-weight: 300;
+          line-height: 150%;
+          letter-spacing: 0.1rem;
+          color: $blue-seven;
+          margin-bottom: 20px;
+        }
+
+        .btns {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+
+          .one,
+          .two,
+          .three,
+          .four {
+            width: 100%;
+            height: 51.8px;
+            margin: 0 auto;
+            background-color: $blue-one;
+            clip-path: polygon(0% 0%, 100% 0%, 99% 49.5%, 100% 100%, 0% 100%, 1% 52%);
+            transition: all 0.3s ease;
+
+            &:hover {
+              background-color: $white;
+            }
+
+            a {
+              color: $blue-six;
+              text-transform: uppercase;
+              width: 100%;
+              height: 100%;
+              display: inline-block;
+              @include fSize(14px);
+              font-weight: 500;
+              letter-spacing: 0.1rem;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-wrap: wrap;
+              gap: 5px;
+              font-weight: 700;
+            }
+          }
+        }
+      }
+
+      .txt-block {
+
+        h2 {
+          @include fSize(24px);
+          color: $blue-six;
+          line-height: 150%;
+          margin-bottom: 20px;
+          letter-spacing: -0.1rem;
+        }
+
+        p {
+          @include fSize(16px);
+          margin-bottom: 20px;
+          color: $blue-six;
+        }
+
+        .two-btn {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          padding-top: 15px;
+
+          .btn-one,
+          .btn-two {
+            width: 100%;
+            height: fit-content;
+            margin: 0 auto;
+            background-color: $blue-one;
+            clip-path: polygon(0% 0%, 100% 0%, 99% 49.5%, 100% 100%, 0% 100%, 1% 52%);
+            transition: all 0.3s ease;
+
+            &:hover {
+              background-color: $white;
+            }
+
+            a {
+              color: $blue-six;
+              text-transform: uppercase;
+              width: 100%;
+              height: 100%;
+              display: inline-block;
+              padding: 5px 0px 3px;
+              vertical-align: middle;
+              @include fSize(12px);
+              font-weight: 700;
+              letter-spacing: 0.1rem;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+
+    .content-2 {
+      display: none;
+    }
+
+    .content-3 {
+      display: none;
+    }
+  }
+
+  @media (min-width: 480px) {
+    .main-container {
+      .content-1 {
+        .four-btn {
+          h1 {
+            @include fSize(30px);
+          }
+          .btns {
+            .one,
+            .two,
+            .three,
+            .four {
+              width: 60%;
+              a {
+                @include fSize(16px);
+              }
+            }
+          }
+        }
+        .txt-block {
+          h2 {
+            @include fSize(30px);
+          }
+          p {
+            @include fSize(20px);
+          }
+          .two-btn {
+            .btn-one,
+            .btn-two {
+              width: 60%;
+              a {
+                @include fSize(16px);
+                letter-spacing: 0.2rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .main-container {
+      .content-1 {
+        .four-btn {
+          .btns {
+            flex-wrap: wrap;
+            flex-direction: row;
+            .one,
+            .two,
+            .three,
+            .four {
+              height: fit-content;
+              padding: 5px 0px 3px;
+              width: 40%;
+            }
+          }
+        }
+        .txt-block {
+          .two-btn {
+            flex-direction: row;
+            .btn-one,
+            .btn-two {
+              width: 40%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 992px) {
+    .main-container {
+      .content-1 {
+        .four-btn {
+          .btns {
+            .one,
+            .two,
+            .three,
+            .four {
+              a {
+                @include fSize(18px);
+              }
+            }
+          }
+        }
+        .txt-block {
+          .two-btn {
+            .btn-one,
+            .btn-two {
+              a {
+                @include fSize(18px);
+              }
+            }
+          }
+        }
+      }
+      .content-2pre {
+        display: none;
+      }
+      .content-2 {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 85vh;
+        background: #222;
+        overflow: hidden;
+
+        .textBox {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(51, 51, 51, 0.8);
+          clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+        }
+        .skew1 h2,
+        .textBox .skew2 h2 {
+          position: absolute;
+          width: 100%;
+          text-align: center;
+          @include fSize(180px);
+          color: $blue-two;
+          font-weight: 900;
+          text-transform: uppercase;
+        }
+        .skew1,
+        .skew2 {
+          position: relative;
+          top: 50px;
+        }
+        .skew1 {
+          transform: skewY(20deg);
+        }
+        .skew2 {
+          transform: skewY(340deg);
+        }
+        .skew1 h2 {
+          opacity: 0.6;
+        }
+      }
+      .content-3pre {
+        display: none;
+      }
+      .content-3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 85vh;
+        background-color: $blue-two;
+        perspective: 800px;
+      }
+      .wrapper {
+        width: 800px;
+        height: 400px;
+        display: flex;
+        flex-wrap: wrap;
+        transition: all .8s;
+        transform-style: preserve-3d;
+        transform-origin: center;
+        background-image: url('../img/parallax-2-2.png');
+        background-size: cover;
+        overflow: hidden;
+        border: 1px solid #222121;
+        filter: contrast(250%);
+        box-shadow: 5px 5px 7px gray;
+      }
+      .child{
+        width: calc(800px / 3);
+        height: 400px / 3;
+      }
+      .child-1, .child-2, .child-3, .child-4, .child-5, .child-6, .child-7, .child-8, .child-9{
+        filter:none;
+      }
+      .child-1{
+        transform: rotateX(16deg) rotateY(-20deg);
+        box-shadow: rgba(0,0,0,.4) 5px -10px 0px 4px, 
+                    rgba(0,0,0,.3) 10px -20px 0px 8px,
+                    rgba(0,0,0,.2) 15px -30px 0px 12px;
+      }
+      .child-2{
+        transform: rotateX(25deg) rotateY(0deg);
+        box-shadow: rgba(0,0,0,.4) 0px -10px 0px 4px, 
+                    rgba(0,0,0,.3) 0px -20px 0px 8px,
+                    rgba(0,0,0,.2) 5px -30px 0px 12px;
+      }
+      .child-3{
+        transform: rotateX(16deg) rotateY(20deg) ;
+        box-shadow: rgba(0,0,0,.4) -5px -10px 0px 4px, 
+                    rgba(0,0,0,.3) -10px -20px 0px 8px,
+                    rgba(0,0,0,.2) -15px -30px 0px 12px;
+      }
+      .child-4{
+        transform: rotateX(0deg) rotateY(-20deg);
+        box-shadow: rgba(0,0,0,.4) 5px 0px 0px 4px, 
+                    rgba(0,0,0,.3) 10px 0px 0px 8px,
+                    rgba(0,0,0,.2) 15px 0px 0px 12px;
+      }
+      .child-5{
+        filter: drop-shadow(8px 8px 10px gray);
+      }
+      .child-6{
+        transform:rotateX(0deg) rotateY(20deg);
+        box-shadow: rgba(0,0,0,.4) -5px 0px 0px 4px, 
+                    rgba(0,0,0,.3) -10px 0px 0px 8px,
+                    rgba(0,0,0,.2) -15px 0px 0px 12px;
+      }
+      .child-7{
+        transform: rotateX(-16deg) rotateY(-20deg);
+        box-shadow: rgba(0,0,0,.4) 5px 10px 0px 4px, 
+                    rgba(0,0,0,.3) 10px 20px 0px 8px,
+                    rgba(0,0,0,.2) 15px 30px 0px 12px;
+      }
+      .child-8{
+        transform: rotateX(-25deg) rotateY(0deg);
+        box-shadow: rgba(0,0,0,.4) 0px 10px 0px 4px, 
+                    rgba(0,0,0,.3) 0px 20px 0px 8px,
+                    rgba(0,0,0,.2) 0px 30px 0px 12px;
+      }
+      .child-9{
+        transform: rotateX(-16deg) rotateY(20deg) ;
+        box-shadow: rgba(0,0,0,.4) -5px 10px 0px 4px, 
+                    rgba(0,0,0,.3) -10px 20px 0px 8px,
+                    rgba(0,0,0,.2) -15px 30px 0px 12px;
+      }
+    }
+  }
+}

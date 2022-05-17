@@ -1,0 +1,301 @@
+/* ***********NAVIGATION************ */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+  font-family: $fontOne;
+  
+  &.blur {
+    background: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 298 !important;
+  }
+
+  .nav-container {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+
+    .logo {
+      color: red;
+      font-weight: 700;
+      text-decoration: none;
+      @include fSize(20px);
+      text-transform: uppercase;
+      letter-spacing: 0.5vmin;
+      z-index: 300;
+    }
+
+    .nav-menu {
+
+      .burger-icon {
+        color: $white;
+        display: block;
+        position: relative;
+        font-size: 20px;
+        z-index: 300;
+        cursor: pointer;
+      }
+
+      .menu-body {
+        position: fixed !important;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 100px 30px 30px 30px;
+        transition: left 0.3s ease 0s;
+
+        &.active {
+          left: 0;
+        }
+
+        .menu-list {
+  
+          & > li {
+            margin: 0px 0px 30px 0px;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            &.active .sub-list,
+            &:hover .sub-list {
+              display: block;
+            }
+
+            .sub-list {
+              position: relative;
+              background-color: $white;
+              color: $black !important;
+              margin-top: 10px;
+              display: none;
+
+              .sub-link {
+                color: $black;
+                @include fSize(20px);
+  
+                &:hover {
+                  @include linkHover;
+                }
+              }
+  
+              li {
+                margin: 0 0 10px 0;
+  
+                &:last-child {
+                  margin: 0;
+                }
+              }
+            }
+          }
+  
+          .menu-link {
+            color: $white;
+            @include fSize(24px);
+  
+            &:hover {
+              @include linkHover;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* touchscreen or pc */
+body.lock {
+  overflow: hidden;
+}
+/* /end touchscreen or pc */
+
+@media (min-width: 992px) {
+  nav {
+
+    .nav-container {
+
+      .logo {
+        @include fSize(4vmin);
+      }
+      
+      .nav-menu {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 70px;
+        position: relative !important;
+        
+        .menu-body {
+          background-color: inherit;
+          padding: 0 !important;
+          position: absolute !important;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 70px;
+          display: flex;
+          align-items: center;
+          justify-content: right;
+          transition: none;
+        
+          .menu-list {
+            display: flex !important;
+            align-items: center !important;
+            z-index: 300;
+        
+            & > li {
+              padding: 10px 0 !important;
+              margin: 0 0 0 20px !important;
+              position: relative !important;
+
+              &:hover .sub-list {
+                opacity: 1;
+                visibility: visible;
+                transform: translate(0px, 0px);
+                pointer-events: all;
+              }
+        
+              .sub-list {
+                transform: translate(0px, 10%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease 0s;
+                pointer-events: none;
+                position: absolute !important;
+                top: 100%;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.6);
+                padding: 15px !important;
+                min-width: 200px !important;
+                margin-top: 0 !important;
+                display: inherit !important;
+        
+                .sub-link {
+                  color: $white !important;
+                  @include fSize(16px !important);
+                }
+              }
+            }
+        
+            .menu-link {
+              @include fSize(20px !important);
+            }
+          }
+        }
+        .burger-icon {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  background-image: url(../img/1/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to top, #009FB4, transparent);
+    z-index: 101;
+  }
+
+  img,
+  #text {
+    display: none;
+  }
+
+  @media (min-width: 992px) {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $fontOne;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 50px;
+      background: linear-gradient(to top, #009FB4, transparent);
+      z-index: 101;
+    }
+  
+    img {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+  
+      &#sky {
+        z-index: 11;
+      }
+      &#sea {
+        z-index: 17;
+      }
+      &#rocks {
+        z-index: 15;
+      }
+      &#moon {
+        z-index: 13;
+        mix-blend-mode: screen;
+      }
+      &#clouds {
+        z-index: 14;
+      }
+      &#planet {
+        z-index: 15;
+        mix-blend-mode: screen;
+      }
+      &#stars {
+        z-index: 12;
+        mix-blend-mode: screen;
+      }
+    }
+  
+    #text {
+      display: block;
+      position: absolute;
+      top: 40%;
+      color: red;
+      font-size: 30vmin;
+      text-align: center;
+      line-height: 15vmin;
+      transform: translateY(-50%);
+      z-index: 21;
+  
+      right: -1200px;
+  
+      span {
+        font-size: 5vmin;
+        letter-spacing: 0.5vmin;
+        font-weight: 400;
+      }
+    }
+  }
+}
